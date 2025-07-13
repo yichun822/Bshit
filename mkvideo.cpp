@@ -178,8 +178,8 @@ int mkvideo(std::string A, std::string B,int &sign) {
     const char *inputA = A.c_str();
     const char *inputB = B.c_str();
     const char *output = "output.mp4";
-    std::cout << inputA << std::endl;
-    std::cout << inputB << std::endl;
+    //std::cout << inputA << std::endl;
+    //std::cout << inputB << std::endl;
     // 初始化FFmpeg
 
     av_log_set_level(AV_LOG_VERBOSE);

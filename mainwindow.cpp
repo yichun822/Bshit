@@ -51,7 +51,7 @@ void MainWindow::on_pushButton_clicked()
     int sign=0;
     std::thread outvideo(mkvideo,ui->lineEdit->text().toStdString(),ui->lineEdit_2->text().toStdString(),std::ref(sign));
     int cnt=0;
-    while (cnt<=90&& sign==1) {
+    while (cnt<=90&& sign==0) {
         ui->progressBar->setValue(cnt++);
         usleep(200000);
     }
