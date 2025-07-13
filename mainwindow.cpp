@@ -51,13 +51,16 @@ void MainWindow::on_pushButton_clicked()
     int sign=0;
     std::thread outvideo(mkvideo,ui->lineEdit->text().toStdString(),ui->lineEdit_2->text().toStdString(),std::ref(sign));
     int cnt=0;
-    while (cnt<=90) {
+    while (cnt<=90&& sign==1) {
         ui->progressBar->setValue(cnt++);
         usleep(200000);
     }
     outvideo.join();
-    ui->progressBar->setValue(100);
-    if (sign==0)QMessageBox::information(this,"消息       ","成功生成",QMessageBox::Ok);
+
+    if (sign==0) {
+        ui->progressBar->setValue(100);
+        QMessageBox::information(this,"消息       ","成功生成",QMessageBox::Ok);
+    }
     else QMessageBox::critical(this,"error","错误      ",QMessageBox::Ok);
 
 }
